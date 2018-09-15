@@ -15,7 +15,7 @@ import '@yonyou/ac-department-form/build/ac-department-form.css';
 ```
 
 ##效果
- ![image](https://github.com/tinper-acs/ac-department-form/static/images/1.jpg)
+ ![image](https://raw.githubusercontent.com/tinper-acs/ac-department-form/master/static/images/1.jpg)
  
 
 ## API
