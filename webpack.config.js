@@ -6,8 +6,8 @@ module.exports = {
     entry: ['./src/index.js', './src/index.less'],
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: 'ac-table.js',
-        library: 'ac-table',
+        filename: 'ac-department-form.js',
+        library: 'ac-department-form',
         libraryTarget: 'umd'
     },
     module: {
@@ -18,7 +18,10 @@ module.exports = {
                     path.resolve(__dirname, 'src')
                 ],
                 loader: 'babel-loader'
-            }, {
+            },{
+                test: /\.css$/,
+                loader: 'style-loader!css-loader'
+            },{
                 test: /\.less$/,
                 use: [{
                     loader: MiniCssExtractPlugin.loader
@@ -67,7 +70,7 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "ac-table.css"
+            filename: "ac-department-form.css"
         })
     ]
 }

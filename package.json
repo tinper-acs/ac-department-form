@@ -1,20 +1,20 @@
 {
-  "name": "@yonyou/ac-table",
-  "version": "0.0.6",
+  "name": "@yonyou/ac-department-form",
+  "version": "0.0.1",
   "description": " ",
   "main": "./dist/index.js",
   "scripts": {
     "dev": "uba server",
     "build": "rm -rf build && rm -rf lib && rm -rf dist && babel src -d dist --no-comments",
-    "bundle": "webpack --progress --mode=development  && webpack --progress -p --output-filename ac-table.min.js"
+    "bundle": "webpack --progress --mode=development  && webpack --progress -p --output-filename ac-department-form.min.js"
   },
   "bugs": {
-    "url": "https://github.com/tinper-acs/ac-table/issues"
+    "url": "https://github.com/tinper-acs/ac-department-form/issues"
   },
-  "homepage": "https://github.com/tinper-acs/ac-table#readme",
+  "homepage": "https://github.com/tinper-acs/ac-department-form#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shenzaifang/ac-table-sh.git"
+    "url": "git+https://github.com/shenzaifang/ac-department-form.git"
   },
   "author": "shenzf@yonyou.com",
   "license": "MIT",

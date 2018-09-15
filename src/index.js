@@ -4,48 +4,30 @@ import PropTypes from 'prop-types';
 import createModal from 'yyuap-ref'
 
 const propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string,
+    changeTypeFun: PropTypes.func,
+    changeReasonFun: PropTypes.func
 };
-class AcChange extends Component {
+class acDepartmentForm extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            changeType:{}
+            changeType:{},
+            changeTypeRefname:"",
+            changeReasonRefname:"",
+            changeReason:{},
         };
         this.changeType = this.changeType.bind(this);
         this.changeReason = this.changeReason.bind(this);
     }
-    getDataList(){
-        // // let url = 'http://10.6.195.142:8089/corehr/orgchange/position/view?orgId=c02f33880d9d4866903e237245b9e643&includeSuborg=0';
-        // let url = `${urlHost}/corehr-staff-process/corehr/orgchange/position/view?orgId=${this.props.parent.orgId}&includeSuborg=${this.props.parent.includeSuborg}`;
-        // fetch(url, {
-        //     method: 'get',
-        //     mode:'cors'
-        //     // headers: {
-        //     //     'Content-Type': 'application/json'
-        //     // },
-        //     // body: JSON.stringify(data)
-        // }).then((res)=>{
-        //     if(res.ok){
-        //         res.text().then((data)=>{
-        //             this.setState(
-        //                 {
-        //                     tableData:data["data"]
-        //                 }
-        //             );
-        //             // console.log(JSON.parse(data));
-        //         })
-        //     }
-        // }).catch((res)=>{
-        //     console.log(res.status);
-        // });
-    }
+
     componentDidMount(){
-        this.getDataList();
+
     }
     changeType() {
+        let _this = this;
         const option = {
             title: '变动类型',//适配 reftype =1234
             refType:1,//1:树形 2.单表 3.树卡型 4.多选
@@ -82,10 +64,13 @@ class AcChange extends Component {
                 console.log(p)
             },
             onSave: (sels) => {
-                console.log(sels,'..............');
-                this.setState(
+                if(_this.state.changeTypeRefname !== sels[0].refname){
+                    _this.props.changeTypeFun(sels);
+                }
+                _this.setState(
                     {
-                        changeType:sels
+                        changeType:sels,
+                        changeTypeRefname:sels[0].refname
                     }
                 );
             },
@@ -96,10 +81,12 @@ class AcChange extends Component {
                 console.log(p);
             },
             className:'',
-        }
+        };
         createModal(option)
     }
     changeReason() {
+        if(this.state.changeTypeRefname === "")return;
+        let _this = this;
         const option = {
             title: '变动原因',//适配 reftype =1234
             refType:1,//1:树形 2.单表 3.树卡型 4.多选
@@ -118,7 +105,7 @@ class AcChange extends Component {
             param:{//url请求参数
                 refCode:'corp_ref',//变动原因： chgreason_ref  变动类型： chgtype_ref
                 clientParam: {
-                    chgtype: this.state.changeType.id
+                    chgtype: _this.state.changeType.id
                 }
                 //language:'zh_CN'//en_US||zh_TW||fr_FR||de_DE||ja_JP/ 多语参数
             },
@@ -135,14 +122,23 @@ class AcChange extends Component {
             onCancel: function (p) {
                 console.log(p)
             },
-            onSave: function (sels) {
+            onSave: (sels) => {
                 console.log(sels);
+                if(_this.state.changeReasonRefname !== sels[0].refname){
+                    _this.props.changeReasonFun(sels);
+                }
+                _this.setState(
+                    {
+                        changeType:sels,
+                        changeReasonRefname:sels[0].refname
+                    }
+                );
             },
             onBeforeAjax: function (p) {
-                console.log(p)
+                console.log(p);
                 if(p['data']){
                     let data = p['data'];
-                    let dataobj = {}
+                    let dataobj = {};
                     for(let i=0; i<data.length;i++) {
                         dataobj[i+''] = data[i]
                     }
@@ -153,18 +149,18 @@ class AcChange extends Component {
                 console.log(p);
             },
             className:'',
-        }
+        };
         createModal(option)
     }
     render() {
         return (
-            <div className={this.props.className} id='ac-change'>
+            <div className={this.props.className} id='ac-department-form'>
                <div className='ref-change-box'>
                    <div className='ref-change-box-label'>
                        变动类型
                    </div>
                    <div className='ref-change-box-input' onClick={this.changeType}>
-                       <input type="text"/>
+                       <input type="text" value={this.state.changeTypeRefname}/>
                        <div className={'icon sanjiao_down'}></div>
                    </div>
                </div>
@@ -173,7 +169,7 @@ class AcChange extends Component {
                        变动原因
                    </div>
                    <div className='ref-change-box-input' onClick={this.changeReason}>
-                       <input type="text"/>
+                       <input disabled={this.state.changeTypeRefname === ""} type="text" value={this.state.changeReasonRefname}/>
                        <div className={'icon sanjiao_down'}></div>
                    </div>
                </div>
@@ -183,6 +179,6 @@ class AcChange extends Component {
     }
 }
 
-AcChange.propTypes = propTypes;
+acDepartmentForm.propTypes = propTypes;
 
-export default AcChange;
+export default acDepartmentForm;

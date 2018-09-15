@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './demo.less';
 import AcChange from '../index';
 import '../index.less'
+import PropTypes from "prop-types";
 class Demo extends Component {
     constructor(props){
         super(props);
@@ -14,9 +15,15 @@ class Demo extends Component {
 
     render () {
         let className = 'clcclclclclcl';
+        let changeTypeFun = function (data) {
+          console.log("返回类型数据 = ",data)
+        };
+        let changeReasonFun = function (data) {
+          console.log("返回原因数据 = ",data)
+        };
         return (
             <div>
-                <AcChange className={className}/>
+                <AcChange className={className} changeTypeFun={changeTypeFun} changeReasonFun={changeReasonFun}/>
             </div>
         )
     }
