@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import createModal from 'yyuap-ref'
 
+import './index.less'
 const propTypes = {
     className: PropTypes.string,
     changeTypeFun: PropTypes.func,

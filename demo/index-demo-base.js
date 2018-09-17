@@ -4,8 +4,9 @@ import { Panel } from 'bee-panel';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Button from 'bee-button';
-import './demo.less';
-import '../../build/ac-input-locale.css';
+import './demo.scss';
+const pkg = require('../package.json')
+
 
 
 
@@ -44,7 +45,7 @@ class Demo extends Component {
                 <h3>{ title }</h3>
                 <p>{ desc }</p>
                 <Panel collapsible expanded={ this.state.open } colors='bordered' header={ example } footer={footer} footerStyle = {{padding: 0}}>
-                    <pre><code className="hljs javascript">{ code }</code></pre>
+                    <pre><code className="hljs javascript">{ process.env.NODE_ENV==='development'?code:code.replace('../../src/index.js',pkg.name).replace('../../src/index',pkg.name) }</code></pre>
                 </Panel>
             </Col>
         )
