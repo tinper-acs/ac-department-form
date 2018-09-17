@@ -1,6 +1,6 @@
 {
   "name": "@yonyou/ac-department-form",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": " ",
   "main": "./dist/index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   "homepage": "https://github.com/tinper-acs/ac-department-form#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shenzaifang/ac-department-form.git"
+    "url": "git+https://github.com/tinper-acs/ac-department-form.git"
   },
   "author": "shenzf@yonyou.com",
   "license": "MIT",
