@@ -9,6 +9,15 @@ const propTypes = {
     changeTypeFun: PropTypes.func,
     changeReasonFun: PropTypes.func
 };
+const defaultProps = {
+  className: '',
+  changeTypeFun:function () {
+    console.log("没有传入回调函数 changeTypeFun")
+  },
+  changeReasonFun:function () {
+    console.log("没有传入回调函数 changeReasonFun")
+  }
+};
 class acDepartmentForm extends Component {
 
     constructor(props) {
@@ -161,7 +170,7 @@ class acDepartmentForm extends Component {
                        变动类型
                    </div>
                    <div className='ref-change-box-input' onClick={this.changeType}>
-                       <input type="text" value={this.state.changeTypeRefname}/>
+                       <input type="text" value={this.state.changeTypeRefname} readOnly/>
                        <div className={'icon sanjiao_down'}></div>
                    </div>
                </div>
@@ -170,7 +179,7 @@ class acDepartmentForm extends Component {
                        变动原因
                    </div>
                    <div className='ref-change-box-input' onClick={this.changeReason}>
-                       <input disabled={this.state.changeTypeRefname === ""} type="text" value={this.state.changeReasonRefname}/>
+                       <input disabled={this.state.changeTypeRefname === ""} type="text" value={this.state.changeReasonRefname} readOnly/>
                        <div className={'icon sanjiao_down'}></div>
                    </div>
                </div>
@@ -181,5 +190,6 @@ class acDepartmentForm extends Component {
 }
 
 acDepartmentForm.propTypes = propTypes;
+acDepartmentForm.defaultProps = defaultProps;
 
 export default acDepartmentForm;

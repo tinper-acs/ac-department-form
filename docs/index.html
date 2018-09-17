@@ -15,6 +15,7 @@
     <div class="row-fluid">
       <div class="span3"><ul class="nav nav-list">
     <li class="sidebar-header-3"><a href="#目录结构">目录结构</a></li>
+    <li class="sidebar-header-2"><a href="#api">API</a></li>
     <li class="sidebar-header-3"><a href="#常用命令">常用命令</a></li>
 </ul>
       </div>
@@ -53,7 +54,40 @@
 ├── .editorconfig                   <span class="hljs-comment"># 给编辑器的规范  </span>
 ├── .eslitrc                        <span class="hljs-comment"># 代码规范(采用airbnb规范，默认不打开的，在webpack.config.dev.js 中注释部分放开就启用)                      </span>
 ├── .package.json                  
-└── .postcss.config.js</code></pre><h3 id="常用命令">常用命令</h3>
+└── .postcss.config.js</code></pre><p>##效果
+ <img src="https://raw.githubusercontent.com/tinper-acs/ac-department-form/master/static/images/1.jpg" alt="image"></p>
+<h2 id="api">API</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:right">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">className</td>
+<td style="text-align:center">样式</td>
+<td style="text-align:center">string</td>
+<td style="text-align:right">default</td>
+</tr>
+<tr>
+<td style="text-align:left">changeTypeFun</td>
+<td style="text-align:center">变动类型 change回调函数</td>
+<td style="text-align:center">function</td>
+<td style="text-align:right">---:</td>
+</tr>
+<tr>
+<td style="text-align:left">changeReasonFun</td>
+<td style="text-align:center">变动原因 change回调函数</td>
+<td style="text-align:center">function</td>
+<td style="text-align:right">---:</td>
+</tr>
+</tbody>
+</table>
+<h3 id="常用命令">常用命令</h3>
 <p>将 demo合并到demolist的实例中</p>
 <pre class="hljs"><code><span class="hljs-keyword">ac</span>-tools <span class="hljs-keyword">sample</span> </code></pre><p>启动开发环境</p>
 <pre class="hljs"><code>npm <span class="hljs-keyword">run</span><span class="bash"> dev</span></code></pre><p>实例代码打包</p>
