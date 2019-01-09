@@ -55,6 +55,7 @@ ac-tools init 时模版文件，用于react组件开发的模版
 |className|样式|string|default|
 |changeTypeFun|变动类型 change回调函数|function|---:|
 |changeReasonFun|变动原因 change回调函数|function|---:|
+|host| 域名 测试环境：‘http://workbench.yyuap.com’|string|---:|
 
 
 ### 常用命令

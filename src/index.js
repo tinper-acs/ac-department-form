@@ -7,7 +7,8 @@ import './index.less'
 const propTypes = {
     className: PropTypes.string,
     changeTypeFun: PropTypes.func,
-    changeReasonFun: PropTypes.func
+    changeReasonFun: PropTypes.func,
+    host: PropTypes.string
 };
 const defaultProps = {
   className: '',
@@ -16,7 +17,8 @@ const defaultProps = {
   },
   changeReasonFun:function () {
     console.log("没有传入回调函数 changeReasonFun")
-  }
+  },
+  host: ''//   测试环境： http://workbench.yyuap.com
 };
 class acDepartmentForm extends Component {
 
@@ -62,12 +64,12 @@ class acDepartmentForm extends Component {
             },
             refModelUrl:{
                 // TreeUrl:'http://workbench.yyuap.com/ref/rest/iref_ctr/blobRefTree', //树请求
-                TreeUrl:'http://workbench.yyuap.com/ref/diwork/iref_ctr/commonRefsearch', //树请求
-                TreeGridUrl:'http://workbench.yyuap.com/ref/rest/iref_ctr/blobRefTree', //树表树请求
-                GridUrl:'http://workbench.yyuap.com/ref/rest/iref_ctr/commonRefsearch',//单选多选请求
-                TableBodyUrl:'http://workbench.yyuap.com/ref/rest/iref_ctr/blobRefTreeGrid',//表体请求
-                TableBarUrl:'http://workbench.yyuap.com/ref/rest/iref_ctr/refInfo',//表头请求
-                totalDataUrl:'http://workbench.yyuap.com/ref/diwork/iref_ctr/matchPKRefJSON',//根据refcode请求完整数据
+                TreeUrl:`${this.props.host}/ref/diwork/iref_ctr/commonRefsearch`, //树请求
+                TreeGridUrl:`${this.props.host}/ref/rest/iref_ctr/blobRefTree`, //树表树请求
+                GridUrl:`${this.props.host}/ref/rest/iref_ctr/commonRefsearch`,//单选多选请求
+                TableBodyUrl:`${this.props.host}/ref/rest/iref_ctr/blobRefTreeGrid`,//表体请求
+                TableBarUrl:`${this.props.host}/ref/rest/iref_ctr/refInfo`,//表头请求
+                totalDataUrl:`${this.props.host}/ref/diwork/iref_ctr/matchPKRefJSON`,//根据refcode请求完整数据
             },
             checkedArray:[],//已选中数据回填
             onCancel: function (p) {
@@ -120,13 +122,13 @@ class acDepartmentForm extends Component {
                 //language:'zh_CN'//en_US||zh_TW||fr_FR||de_DE||ja_JP/ 多语参数
             },
             refModelUrl:{
-                // TreeUrl:'http://workbench.yyuap.com/ref/diwork/iref_ctr/refInfo', //树请求
-                TreeUrl:'http://workbench.yyuap.com/ref/diwork/iref_ctr/commonRefsearch', //树请求
-                TreeGridUrl:'http://workbench.yyuap.com/ref/rest/iref_ctr/blobRefTree', //树表树请求
-                GridUrl:'http://workbench.yyuap.com/ref/rest/iref_ctr/commonRefsearch',//单选多选请求
-                TableBodyUrl:'http://workbench.yyuap.com/ref/rest/iref_ctr/blobRefTreeGrid',//表体请求
-                TableBarUrl:'http://workbench.yyuap.com/ref/rest/iref_ctr/refInfo',//表头请求
-                totalDataUrl:'http://workbench.yyuap.com/ref/diwork/iref_ctr/matchPKRefJSON',//根据refcode请求完整数据
+                // TreeUrl:'http://workbench.yyuap.com/ref/diwork/iref_ctr/refInfo·`, //树请求
+                TreeUrl:`${this.props.host}/ref/diwork/iref_ctr/commonRefsearch`, //树请求
+                TreeGridUrl:`${this.props.host}/ref/rest/iref_ctr/blobRefTree`, //树表树请求
+                GridUrl:`${this.props.host}/ref/rest/iref_ctr/commonRefsearch`,//单选多选请求
+                TableBodyUrl:`${this.props.host}/ref/rest/iref_ctr/blobRefTreeGrid`,//表体请求
+                TableBarUrl:`${this.props.host}/ref/rest/iref_ctr/refInfo`,//表头请求
+                totalDataUrl:`${this.props.host}/ref/diwork/iref_ctr/matchPKRefJSON`,//根据refcode请求完整数据
             },
             checkedArray:[],//已选中数据回填
             onCancel: function (p) {
