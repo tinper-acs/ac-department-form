@@ -44,9 +44,8 @@ ac-tools init 时模版文件，用于react组件开发的模版
 └── .postcss.config.js
 ```
 
-##效果
- ![image](https://raw.githubusercontent.com/tinper-acs/ac-department-form/master/static/images/1.jpg)
- 
+## 代码演示
+
 
 ## API
 
